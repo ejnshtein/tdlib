@@ -1,6 +1,6 @@
 # ejnshtein/tdlib
 
-Docker image with tdlib inside.
+Docker image with [tdlib](https://github.com/tdlib/td) inside.
 Binaries are located in `/usr/local/lib/`. (example: `/usr/local/lib/libtdjson.so`)
 
 ## Usage
