@@ -1,19 +1,23 @@
-FROM alpine:3.12.0 as builder
+# ubuntu 20.10
+FROM ubuntu:groovy as builder
 
-RUN apk add --update --no-cache \
-  alpine-sdk \
-  linux-headers \
+# fix tzdata package
+ENV TZ=Europe/Kiev
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+
+RUN apt-get update -y && apt-get upgrade -y && apt-get install -y \
+  make \
   git \
-  zlib-dev \
-  openssl-dev \
+  zlib1g-dev \
+  libssl-dev \
   gperf \
   php \
-  php-ctype \
-  cmake
+  cmake \
+  g++
 
 WORKDIR /tmp/_build_tdlib/
 
-RUN git clone https://github.com/tdlib/td.git /tmp/_build_tdlib/
+RUN git clone https://github.com/tdlib/td.git /tmp/_build_tdlib/ && git checkout -b 1.6.0
 
 RUN mkdir build
 
