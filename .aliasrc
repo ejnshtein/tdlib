@@ -1,0 +1,1 @@
+build=docker build . --tag ejnshtein/tdlib:latest
