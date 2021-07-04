@@ -1,4 +1,4 @@
-FROM alpine:3.12.0 as builder
+FROM alpine:3.14.0 as builder
 
 RUN apk add --update --no-cache \
   alpine-sdk \
