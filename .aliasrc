@@ -1,2 +1,4 @@
-build=docker build . --tag ejnshtein/tdlib:latest
-push=docker push ejnshtein/tdlib:latest
+build-latest=docker build . --tag ejnshtein/tdlib:latest
+push-latest=docker push ejnshtein/tdlib:latest
+build=docker build . --tag ejnshtein/tdlib:$(date +%Y%m%d)
+push=docker push ejnshtein/tdlib:$(date +%Y%m%d)
